@@ -60,8 +60,11 @@ class SerialComms:
         myString = ""
 
         # Adds the data to myString
-        for d in data:
-            myString += str(int(d)).zfill(3)
+        myString += str(int(data)).zfill(2)
+
+        # Invalid or no data present
+        if (myString == "-1" or myString == "91" or myString == ""):
+            myString = "91"
 
         # Adds the terminating character to the end
         myString += "\r"
